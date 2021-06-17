@@ -5,6 +5,7 @@ import (
 	"github.com/Paramosch/predictstock-backend-eng/server/routes"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	"os"
 )
 
 func Run(ctx context.Context) context.Context {
@@ -24,7 +25,8 @@ func Run(ctx context.Context) context.Context {
 
 	// start web-server
 	go func(app *fiber.App) {
-		err := app.Listen(":3000")
+		port := os.Getenv("FIBER_PORT")
+		err := app.Listen(":" + port)
 		if err != nil {
 			panic(err)
 		}
