@@ -9,28 +9,28 @@ import (
 )
 
 var info = tbot.KeyboardButton{
-	Text:            "⚙️ Как это работает",
+	Text:            "⚙️ How to use",
 	RequestContact:  false,
 	RequestLocation: false,
 	RequestPoll:     nil,
 }
 
 var profile = tbot.KeyboardButton{
-	Text:            "💳 Профиль",
+	Text:            "💳 Profile",
 	RequestContact:  false,
 	RequestLocation: false,
 	RequestPoll:     nil,
 }
 
 var help = tbot.KeyboardButton{
-	Text:            "❓ Помощь",
+	Text:            "❓ Support",
 	RequestContact:  false,
 	RequestLocation: false,
 	RequestPoll:     nil,
 }
 
 var about = tbot.KeyboardButton{
-	Text:            "ℹ️ О боте",
+	Text:            "ℹ️ Info",
 	RequestContact:  false,
 	RequestLocation: false,
 	RequestPoll:     nil,

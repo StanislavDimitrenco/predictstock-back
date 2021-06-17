@@ -10,12 +10,12 @@ import (
 
 func GetInvoiceButton() *tbot.InlineKeyboardMarkup {
 	button1 := tbot.InlineKeyboardButton{
-		Text:         "Запросить счёт на месяц",
+		Text:         "Monthly payment",
 		CallbackData: "getInvoice",
 	}
 
 	button2 := tbot.InlineKeyboardButton{
-		Text:         "Запросить счёт на год",
+		Text:         "Annual payment",
 		CallbackData: "getInvoiceYear",
 	}
 
@@ -29,7 +29,7 @@ func GetInvoiceButton() *tbot.InlineKeyboardMarkup {
 
 func BuyPlanLink(url string) *tbot.InlineKeyboardMarkup {
 	button1 := tbot.InlineKeyboardButton{
-		Text: "Оплатить",
+		Text: "Pay",
 		URL:  url,
 	}
 
@@ -41,7 +41,7 @@ func BuyPlanLink(url string) *tbot.InlineKeyboardMarkup {
 }
 
 func InvoiceMessage(price string) string {
-	return fmt.Sprintf("Счёт на оплату тарифа на сумму\\: *%sр*", price)
+	return fmt.Sprintf("Invoice for payment of the tariff for the amount\\: *%s USD*", price)
 }
 
 func BuyPlan(price string) string {
@@ -49,7 +49,7 @@ func BuyPlan(price string) string {
 	pricePerMonth, _ := strconv.Atoi(price)
 	pricePerMonth = pricePerMonth * 12
 	return fmt.Sprintf(
-		"Для использования бота оплатите тариф\\.\n\nВ тариф входит подписка на 30 дней\\.\n\nСтоимость подписки \\-  %s₽\n\nПри оплатае за год суммой %d₽, мы дарим вам месяц бесплатно\n\n",
+		"To use the bot, pay for the tariff\\.\n\nThe tariff includes a subscription for 30 days\\.\n\nSubscription cost \\-  %s USD\n\nWhen paying for the year in the amount %d USD, we give you a month for free\n\n",
 		price,
 		pricePerMonth,
 	)
@@ -64,12 +64,12 @@ func ProlongationPlan(timeProlongation time.Time, price string) string {
 	prc := strconv.Itoa(priceForYear)
 
 	return fmt.Sprintf(
-		"Вы можете продлить тариф на месяц\\. \n"+
-			"Стоимость продления \\- *%s₽*\n\n"+
-			"*БОНУС\\!*\n"+
-			"При оплате тарифа за год \\- *один месяц бесплатно\\!*\n"+
-			"Стоимость продления \\- *%s₽*\n"+
-			"Тариф продлится до *%s*\\.",
+		"You can renew your subscription for a month \n"+
+			"at just *%s USD*\n\n"+
+			"*SPECIAL OFFER\\:*\n"+
+			"annual subscription for just *%s USD*\n"+
+			"\\- one month OFF\\! \n"+
+			"The tariff will last until *%s*\\.",
 		price,
 		prc,
 		newTimeAfterYear,

@@ -6,16 +6,16 @@ import (
 )
 
 func Profile(user *database.User) string {
-	paidStatus := "Состояние тарифа: "
+	paidStatus := "Tariff status: "
 	paidProlongation := ""
 	if user.GetIsPaid() {
-		paidStatus = paidStatus + "*Оплачен*"
+		paidStatus = paidStatus + "*Paid Up*"
 		paidProlongation = fmt.Sprintf(
-			"\nДействие вашего тарифа до: *%v*\n",
-			user.GetPaidUntil().Format("02-01-2006"),
+			"\nYour subscription is paid till: *%v*\n",
+			user.GetPaidUntil().Format("Jan 2, 2006"),
 		)
 	} else {
-		paidStatus = paidStatus + "*Не оплачен*"
+		paidStatus = paidStatus + "*Not Paid*"
 	}
 
 	return fmt.Sprintf("%s\n%s", paidStatus, paidProlongation)

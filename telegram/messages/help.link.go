@@ -7,7 +7,7 @@ import (
 
 func LinkButton() *tbot.InlineKeyboardMarkup {
 	button := tbot.InlineKeyboardButton{
-		Text: "Чат поддержки",
+		Text: "Support Chat",
 		URL:  "tg://resolve?domain=PredictStock_Help",
 	}
 
@@ -19,5 +19,5 @@ func LinkButton() *tbot.InlineKeyboardMarkup {
 }
 
 func HelpMessage() string {
-	return fmt.Sprintf("Если у вас возникли вопросы или нужна помощь, \nперейдите в наш чат поддержки")
+	return fmt.Sprintf("If you have questions or need help, \nvisit our support chat\\.")
 }
